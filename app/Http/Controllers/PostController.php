@@ -82,4 +82,16 @@ class PostController extends Controller
     {
         //
     }
+      // File: ./app/Http/Controllers/PostController.php
+      public function all()
+      {
+          return view('landing', [
+              'posts' => Post::latest()->paginate(5)
+          ]);
+      }
+          // File: ./app/Http/Controllers/PostController.php
+    public function single(Post $post)
+    {
+        return view('single', compact('post'));
+    }
 }
